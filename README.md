@@ -13,7 +13,7 @@ especially if it needs to be finished before the deadline.
 
 ## Goal of the Project
 So on to the current idea: **PRiTC**.  
-Positive Reinforcement upon Task Completion, a discord bot sending positive messages and encouraging messages to myself.  
+Positive Reinforcement upon Task Completion, a discord bot sending positive and encouraging messages to myself.  
 The idea sounds simple enough yet effective. A physical panel on my desk, with a couple buttons ready to press to signal
 start of task and task finished or cancelled. These buttons would be hooked up to a RPi 3a+. On a button press a task
 will be started, and an internal timer will run, then a press on the button for completing the task would log the task
