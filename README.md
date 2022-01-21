@@ -21,6 +21,6 @@ as completed, the other button would cancel the task. On task completion the tas
 will be send over the internet to ThingSpeak and a discord bot running on my desktop would receive this data through the
 IoT middleware platform prompting the bot to send a randomly selected positive reinforcement.  
 
-##Data extension
+## Data extension
 The gathered data could be extended to include light-levels (using LDRs in the circuit), and perhaps even sound-levels. 
 
