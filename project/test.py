@@ -47,7 +47,7 @@ posted_confirmation = False
 while True:  # Run forever
     while await_confirmation:
         if not(posted_confirmation):
-            print(f"{Fore.CYAN}There's already a task in progress. \n"
+            print(f"{Fore.CYAN}\nThere's already a task in progress. \n"
                   f"{Fore.WHITE}Are you sure you want to start a new task?\n"
                   f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
                   f"{Fore.RED}N{Style.RESET_ALL}")
