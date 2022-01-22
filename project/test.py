@@ -54,7 +54,7 @@ while True:  # Run forever
             posted_confirmation = True
             time.sleep(0.2)
         if GPIO.input(10) == GPIO.HIGH:
-            print(f"{Fore.GREEN}\nStarting new task...\n")
+            print(f"{Fore.GREEN}\nY{Style.RESET_ALL}: Starting new task...\n")
             start = task_start()
             time.sleep(0.2)
             posted_confirmation = False
