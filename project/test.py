@@ -25,17 +25,23 @@ def task_end():
 def calculate_task_duration(start, end):
     task_duration = round((end - start), 3)
     if task_duration > 60:
-        task_duration_minutes = str(int(task_duration/60))
-        task_duration_seconds = str(task_duration%60)
-        task_duration_str = "It took you: " + task_duration_minutes +\
-                            " minutes and " + task_duration_seconds +\
-                            "seconds to complete the task\n\n"
+        task_duration_minutes = str(int(task_duration / 60))
+        task_duration_seconds = str(task_duration % 60)
+        task_duration_str = "It took you: " + task_duration_minutes
+        if int(task_duration_minutes) > 1:
+            task_duration_str += " minutes and "
+        elif int(task_duration_minutes) == 1:
+            task_duration_str += "minute"
+        task_duration_str += " and " + task_duration_seconds + \
+                             " seconds to complete the task\n\n"
+
     else:
         task_duration_seconds = str(task_duration)
-        task_duration_str = "It took you: " + task_duration_seconds +\
+        task_duration_str = "It took you: " + task_duration_seconds + \
                             "seconds to complete the task\n\n"
     print(f"\n{Fore.GREEN}Task Completed!{Style.RESET_ALL}" +
           task_duration_str)
+    return task_duration
 
 
 GPIO.setwarnings(False)  # Ignore warning for now
