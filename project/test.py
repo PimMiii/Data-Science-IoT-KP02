@@ -44,9 +44,20 @@ duration = None
 
 while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
-        start = task_start()
+        if start:
+            print(f"{Fore.CYAN}There's a task in progress. \n"
+                  f"{Fore.WHITE}Are you sure you want to start a new task?\n"
+                  f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
+                  f"{Fore.RED}N{Style.RESET_ALL}")
+            if GPIO.input(10) == GPIO.HIGH:
+                start = task_start()
+                time.sleep(0.2)
+            else:
+                continue
+        else:
+            start = task_start()
+            time.sleep(0.2)  # to combat counting multiple presses
 
-        time.sleep(0.2)  # to combat counting multiple presses
 
     if GPIO.input(8) == GPIO.HIGH:
         if start:
