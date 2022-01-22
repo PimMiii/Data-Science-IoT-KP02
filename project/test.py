@@ -41,26 +41,31 @@ GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)
 start = None
 end = None
 duration = None
+await_confirmation = False
 
 while True:  # Run forever
-    if GPIO.input(10) == GPIO.HIGH:
-        if start:
-            print(f"{Fore.CYAN}There's a task in progress. \n"
-                  f"{Fore.WHITE}Are you sure you want to start a new task?\n"
-                  f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
-                  f"{Fore.RED}N{Style.RESET_ALL}")
-            time.sleep(0.2)
-            if GPIO.input(10) == GPIO.HIGH:
-                start = task_start()
-                time.sleep(0.2)
-            elif GPIO.input(8) == GPIO.HIGH:
-                time.sleep(0.2)
-                continue
-
-        else:
+    while await_confirmation:
+        print(f"{Fore.CYAN}There's a task in progress. \n"
+              f"{Fore.WHITE}Are you sure you want to start a new task?\n"
+              f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
+              f"{Fore.RED}N{Style.RESET_ALL}")
+        if GPIO.input(10) == GPIO.HIGH:
             start = task_start()
-            time.sleep(0.2)  # to combat counting multiple presses
+            time.sleep(0.2)
+        elif GPIO.input(8) == GPIO.HIGH:
+            time.sleep(0.2)
+            await_confirmation = False
+            break
 
+    while not (await_confirmation):
+        if GPIO.input(10) == GPIO.HIGH:
+            if start:
+                await_confirmation = True
+                break
+
+            else:
+                start = task_start()
+                time.sleep(0.2)  # to combat counting multiple presses
 
     if GPIO.input(8) == GPIO.HIGH:
         if start:
