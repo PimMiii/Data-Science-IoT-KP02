@@ -26,7 +26,10 @@ while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
         start = taskStart()
         print(start)
+        time.sleep(1)
+
     if GPIO.input(8) == GPIO.HIGH:
         end = taskEnd()
         print(end)
         print("Task took:" + str(end - start) + "seconds")
+        time.sleep(1)
