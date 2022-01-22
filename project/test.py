@@ -33,5 +33,5 @@ while True:  # Run forever
         end = taskEnd()
         print(end)
         if start:
-            print("Task took:" + str(end - start) + "seconds")
+            print("Task took:" + str(round(end - start),3) + "seconds")
         time.sleep(1)
