@@ -57,3 +57,4 @@ while True:  # Run forever
         else:
             print(f"{Fore.RED}Can't stop task!"
                   f" No task has been started. {Style.RESET_ALL}")
+            time.sleep(0.2)
