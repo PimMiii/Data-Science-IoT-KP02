@@ -67,13 +67,13 @@ while True:  # Run forever
                 start = task_start()
                 time.sleep(0.2)  # to combat counting multiple presses
 
-    if GPIO.input(8) == GPIO.HIGH:
-        if start:
-            end = task_end()
-            duration = calculate_task_duration(start, end)
-            start = None
-            time.sleep(0.2)  # to combat counting multiple presses
-        else:
-            print(f"{Fore.RED}Can't stop task!"
-                  f" No task has been started. {Style.RESET_ALL}")
-            time.sleep(0.2)
+        if GPIO.input(8) == GPIO.HIGH:
+            if start:
+                end = task_end()
+                duration = calculate_task_duration(start, end)
+                start = None
+                time.sleep(0.2)  # to combat counting multiple presses
+            else:
+                print(f"{Fore.RED}Can't stop task!"
+                      f" No task has been started. {Style.RESET_ALL}")
+                time.sleep(0.2)
