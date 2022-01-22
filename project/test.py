@@ -47,6 +47,5 @@ while True:  # Run forever
 
         if start:
             duration = calculate_task_duration(start, end)
-
             start = None
         time.sleep(1)
