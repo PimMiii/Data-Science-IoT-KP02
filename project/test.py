@@ -19,7 +19,7 @@ def task_end():
 
 def calculate_task_duration(start, end):
     task_duration = round((end - start), 3)
-    print("Task Completed! It took you: " + str(task_duration) +
+    print("\nTask Completed! It took you: " + str(task_duration) +
           " seconds to complete task \n\n")
     return task_duration
 
