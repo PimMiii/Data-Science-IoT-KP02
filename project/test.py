@@ -1,25 +1,28 @@
 import time
 
 import RPi.GPIO as GPIO
+from colorama import Fore
+from colorama import Style
 
 
 def task_start():
     GPIO.output(12, GPIO.HIGH)
     start = time.perf_counter()
-    print("Task Started: " + str(start))
+    print(f"{Fore.YELLOW}Task Started: {Style.RESET_ALL}" + str(start))
     return start
 
 
 def task_end():
     GPIO.output(12, GPIO.LOW)
     end = time.perf_counter()
-    print("Task Ended: " + str(end))
+    print(f"{Fore.YELLOW}Task Ended: {Style.RESET_ALL}" + str(end))
     return end
 
 
 def calculate_task_duration(start, end):
     task_duration = round((end - start), 3)
-    print("\nTask Completed! It took you: " + str(task_duration) +
+    print(f"\n{Fore.GREEN}Task Completed!{Style.RESET_ALL} It took you: "
+          + str(task_duration) +
           " seconds to complete task \n\n")
     return task_duration
 

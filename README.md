@@ -35,3 +35,6 @@ Channel expects 7 fields:
 6. lightlevel end (lightlevel value at end of task)
 7. lightlevel average (average of continuous lightlevel measures taken during task)
 
+### install requirements 
+to install the required modules on RPi:  
+``` pip install -r requirements.txt ```
