@@ -24,3 +24,14 @@ IoT middleware platform prompting the bot to send a randomly selected positive r
 ### Possible extension
 The gathered data could be extended to include light-levels (using LDRs in the circuit), and perhaps even sound-levels. 
 
+## Thingspeak
+
+Channel expects 7 fields:
+1. Completion (is task completed: 0 = cancelled/not completed, 1 = completed)
+2. Start time (Timestamp of the task starting time)
+3. End time (Timestamp of the task ending time)
+4. Duration (time it took for task to be completed in seconds)
+5. lightlevel start (lightlevel value at start of task)
+6. lightlevel end (lightlevel value at end of task)
+7. lightlevel average (average of continuous lightlevel measures taken during task)
+
