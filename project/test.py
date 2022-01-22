@@ -46,7 +46,7 @@ posted_confirmation = False
 
 while True:  # Run forever
     while await_confirmation:
-        if not(posted_confirmation):
+        if not posted_confirmation:
             print(f"{Fore.CYAN}\nThere's already a task in progress. \n"
                   f"{Fore.WHITE}Are you sure you want to start a new task?\n"
                   f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
@@ -66,7 +66,7 @@ while True:  # Run forever
             await_confirmation = False
             break
 
-    while not (await_confirmation):
+    while not await_confirmation:
         if GPIO.input(10) == GPIO.HIGH:
             if start:
                 await_confirmation = True
