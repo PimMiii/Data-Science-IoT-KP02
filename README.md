@@ -28,8 +28,8 @@ The gathered data could be extended to include light-levels (using LDRs in the c
 
 Channel expects 7 fields:
 1. Completion (is task completed: 0 = cancelled/not completed, 1 = completed)
-2. Start time (Timestamp of the task starting time)
-3. End time (Timestamp of the task ending time)
+2. Start time (timestamp of the task starting time)
+3. End time (timestamp of the task ending time)
 4. Duration (time it took for task to be completed in seconds)
 5. lightlevel start (lightlevel value at start of task)
 6. lightlevel end (lightlevel value at end of task)
