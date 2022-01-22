@@ -1,4 +1,19 @@
+import time
+
 import RPi.GPIO as GPIO
+
+
+def taskStart():
+    GPIO.output(12, GPIO.HIGH)
+    start = time.perf_counter()
+    return start
+
+
+def taskEnd():
+    GPIO.output(12, GPIO.LOW)
+    end = time.perf_counter()
+    return end
+
 
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
@@ -9,6 +24,9 @@ GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)
 
 while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
-        GPIO.output(12, GPIO.HIGH)
+        start = taskStart()
+        print(start)
     if GPIO.input(8) == GPIO.HIGH:
-        GPIO.output(12, GPIO.LOW)
+        end = taskEnd()
+        print(end)
+        print("Task took:" + str(end - start) + "seconds")
