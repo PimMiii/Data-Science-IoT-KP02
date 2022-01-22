@@ -31,7 +31,7 @@ def calculate_task_duration(start, end):
         if int(task_duration_minutes) > 1:
             task_duration_str += " minutes and "
         elif int(task_duration_minutes) == 1:
-            task_duration_str += "minute"
+            task_duration_str += " minute"
         task_duration_str += " and " + task_duration_seconds + \
                              " seconds to complete the task\n\n"
 
