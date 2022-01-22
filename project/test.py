@@ -1,6 +1,9 @@
 import time
 
+# import RPi.GPIO to use the GPIO interface on the RPi
 import RPi.GPIO as GPIO
+
+# import from Colorama to output colored text to the terminal
 from colorama import Fore
 from colorama import Style
 
@@ -43,7 +46,7 @@ while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
         start = task_start()
 
-        time.sleep(1)
+        time.sleep(0.2)
 
     if GPIO.input(8) == GPIO.HIGH:
         end = task_end()
@@ -51,4 +54,4 @@ while True:  # Run forever
         if start:
             duration = calculate_task_duration(start, end)
             start = None
-        time.sleep(1)
+        time.sleep(0.2)
