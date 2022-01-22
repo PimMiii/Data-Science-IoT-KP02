@@ -42,18 +42,24 @@ start = None
 end = None
 duration = None
 await_confirmation = False
+posted_confirmation = False
 
 while True:  # Run forever
     while await_confirmation:
-        print(f"{Fore.CYAN}There's a task in progress. \n"
-              f"{Fore.WHITE}Are you sure you want to start a new task?\n"
-              f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
-              f"{Fore.RED}N{Style.RESET_ALL}")
+        if not(posted_confirmation):
+            print(f"{Fore.CYAN}There's a task in progress. \n"
+                  f"{Fore.WHITE}Are you sure you want to start a new task?\n"
+                  f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
+                  f"{Fore.RED}N{Style.RESET_ALL}")
+            posted_confirmation = True
         if GPIO.input(10) == GPIO.HIGH:
             start = task_start()
             time.sleep(0.2)
+            posted_confirmation = False
+            await_confirmation = False
         elif GPIO.input(8) == GPIO.HIGH:
             time.sleep(0.2)
+            posted_confirmation = False
             await_confirmation = False
             break
 
