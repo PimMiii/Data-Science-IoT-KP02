@@ -14,7 +14,8 @@ def taskEnd():
     end = time.perf_counter()
     return end
 
-
+start = None
+end = None
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 # Set pins to be an input pin and set initial value to be pulled low (off)
@@ -31,5 +32,6 @@ while True:  # Run forever
     if GPIO.input(8) == GPIO.HIGH:
         end = taskEnd()
         print(end)
-        print("Task took:" + str(end - start) + "seconds")
+        if start:
+            print("Task took:" + str(end - start) + "seconds")
         time.sleep(1)
