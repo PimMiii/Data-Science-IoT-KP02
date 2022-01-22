@@ -10,14 +10,14 @@ from colorama import Style
 
 def task_start():
     GPIO.output(12, GPIO.HIGH)
-    start = time.perf_counter()
+    start = time.perf_counter()  # timestamp starting time
     print(f"{Fore.YELLOW}Task Started: {Style.RESET_ALL}" + str(start))
     return start
 
 
 def task_end():
     GPIO.output(12, GPIO.LOW)
-    end = time.perf_counter()
+    end = time.perf_counter()  # timestamp end time
     print(f"{Fore.YELLOW}Task Ended: {Style.RESET_ALL}" + str(end))
     return end
 
@@ -46,7 +46,7 @@ while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
         start = task_start()
 
-        time.sleep(0.2)
+        time.sleep(0.2)  # to combat counting multiple presses
 
     if GPIO.input(8) == GPIO.HIGH:
         end = task_end()
@@ -54,4 +54,4 @@ while True:  # Run forever
         if start:
             duration = calculate_task_duration(start, end)
             start = None
-        time.sleep(0.2)
+        time.sleep(0.2)  # to combat counting multiple presses
