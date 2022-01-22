@@ -25,7 +25,7 @@ def task_end():
 def calculate_task_duration(start, end):
     task_duration = round((end - start), 3)
     if task_duration > 60:
-        task_duration_minutes = str(int(task_duration)/60)
+        task_duration_minutes = str(int(task_duration/60))
         task_duration_seconds = str(task_duration%60)
         task_duration_str = "It took you: " + task_duration_minutes +\
                             " minutes and " + task_duration_seconds +\
