@@ -52,6 +52,7 @@ while True:  # Run forever
                   f"{Style.BRIGHT}{Fore.GREEN}Y{Fore.WHITE}/"
                   f"{Fore.RED}N{Style.RESET_ALL}")
             posted_confirmation = True
+            time.sleep(0.2)
         if GPIO.input(10) == GPIO.HIGH:
             start = task_start()
             time.sleep(0.2)
