@@ -3,35 +3,47 @@ import time
 import RPi.GPIO as GPIO
 
 
-def taskStart():
+def task_start():
     GPIO.output(12, GPIO.HIGH)
     start = time.perf_counter()
     return start
 
 
-def taskEnd():
+def task_end():
     GPIO.output(12, GPIO.LOW)
     end = time.perf_counter()
     return end
 
-start = None
-end = None
+
+def calculate_task_duration(start, end):
+    task_duration = round((end - start), 3)
+    return task_duration
+
+
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 # Set pins to be an input pin and set initial value to be pulled low (off)
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# Set pin 12 to be an output and initial low (off)
 GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)
+
+start = None
+end = None
+duration = None
 
 while True:  # Run forever
     if GPIO.input(10) == GPIO.HIGH:
-        start = taskStart()
+        start = task_start()
         print(start)
         time.sleep(1)
 
     if GPIO.input(8) == GPIO.HIGH:
-        end = taskEnd()
+        end = task_end()
         print(end)
         if start:
-            print("Task took:" + str(round(end - start),3) + "seconds")
+            duration = calculate_task_duration(start, end)
+            print("Task Completed! It took you: " + str(duration) +
+                  "Seconds to complete task")
+            start = None
         time.sleep(1)
