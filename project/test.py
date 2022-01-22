@@ -52,7 +52,7 @@ while True:  # Run forever
             if GPIO.input(10) == GPIO.HIGH:
                 start = task_start()
                 time.sleep(0.2)
-            else:
+            elif GPIO.input(8) == GPIO.HIGH:
                 continue
         else:
             start = task_start()
