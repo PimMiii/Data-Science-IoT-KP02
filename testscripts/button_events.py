@@ -11,7 +11,7 @@ from colorama import Style
 task_start = None
 task_status = None
 task_end = None
-press_duration = None
+press_duration = 0
 
 green_button = 10
 red_button = 8
