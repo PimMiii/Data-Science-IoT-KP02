@@ -143,7 +143,7 @@ if __name__ == '__main__':
             if humidity is not None and temperature is not None and task is not None:
                 message = {'created_at': date.isoformat(),
                            'field1': task[0],
-                           'field2t': task[1],
+                           'field2': task[1],
                            'field3': task[2],
                            'field4': task[3],
                            'field5': temperature,
