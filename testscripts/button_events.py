@@ -27,7 +27,7 @@ def time_press():
     global press_duration
     rising = time.perf_counter()  # start counter
     GPIO.wait_for_edge(red_button, GPIO.FALLING,
-                       timeout=5000)  # wait for button to be released
+                       timeout=3000)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
 
