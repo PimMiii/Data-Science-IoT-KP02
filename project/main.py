@@ -95,8 +95,8 @@ def httprequest():
     data = {'api_key': writeAPIkey,'updates': message_buffer}
 
     print(data)
-    r = requests.post(url)  # Post the data
-    if r.status_code == 202:
+    r = requests.post(url=url + message)  # Post the data
+    if r.status_code == 200:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
     else:
@@ -138,21 +138,14 @@ if __name__ == '__main__':
             date = datetime.datetime.replace(date, tzinfo=datetime.timezone.utc)
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if humidity is not None and temperature is not None and task is not None:
-                message = {'created_at': date.isoformat(),
-                           'field1': task[0],
-                           'field2': task[1],
-                           'field3': task[2],
-                           'field4': task[3],
-                           'field5': temperature,
-                           'field6': humidity}
+                message = '&field1' + str(task[0]) + '&field2' + str(
+                    task[1]) + '&field3' + str(task[2]) + '&field4' + str(
+                    task[3]) + '&field5=' + str(
+                    temperature) + '&field6=' + str(humidity)
                 print(message)
                 task = None  # reset task after writing it into the message
             elif humidity is not None and temperature is not None:
-                url = 'https://api.thingspeak.com/update?api_key=JG99HQJ1UYZ54AVH' \
-                      '&field5=' + str(temperature) + '&field6=' + str(humidity)
-                message = {'created_at': date.strftime("%G %X %z"),
-                           'field5': temperature,
-                           'field6': humidity}
+                message = '&field5=' + str(temperature) + '&field6=' + str(humidity)
                 print(message)
             else:
                 print(f"{Fore.RED}Sensor failure. Check wiring."
