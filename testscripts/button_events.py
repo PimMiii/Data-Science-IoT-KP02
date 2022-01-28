@@ -50,11 +50,14 @@ def cancel_task():
     global task_status
     global task_start
     global task_end
-    task_status = 'cancelled'  # set status to cancelled
-    task_end = datetime.datetime.now()  # timestamp task end
-    print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
-    print(str(task_end) + "\n\n")
-    task_start = None  # reset task
+    if not task_start:
+        print("no task to cancel")
+    else:
+        task_status = 'cancelled'  # set status to cancelled
+        task_end = datetime.datetime.now()  # timestamp task end
+        print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
+        print(str(task_end) + "\n\n")
+        task_start = None  # reset task
 
 
 def finish_task():
@@ -63,7 +66,6 @@ def finish_task():
     global task_end
     if not task_start:
         print("no task to stop.")
-        # do nothing
     else:
         task_status = 'finished'  # set status to finished
         task_end = datetime.datetime.now()  # timestamp task end
@@ -88,6 +90,6 @@ while True:
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
         if press_duration < 1:  # short press
             finish_task()
-        elif 1 < press_duration < 5:  # long press
+        elif 1 < press_duration < 5 and task_start:  # long press
             cancel_task()
         time.sleep(0.2)
