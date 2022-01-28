@@ -128,5 +128,6 @@ if __name__ == '__main__':
                            'humidity': humidity}
                 print(message)
             else:
-                print("Sensor failure. Check wiring.")
+                print(f"{Fore.RED}Sensor failure. Check wiring."
+                      f"{Style.RESET_ALL}")
             last_update = time.time()
