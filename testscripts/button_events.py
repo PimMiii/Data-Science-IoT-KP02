@@ -83,3 +83,4 @@ while True:
             finish_task()
         elif 1 < press_duration < 5:  # long press
             cancel_task()
+        time.sleep(0.2)
