@@ -27,7 +27,7 @@ GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 def start_task():
     global task_start
     if not task_start:  # if no task is running
-        task_start = datetime.datetime.now()  # timestamp task start
+        task_start = time.time()  # timestamp task start
         print(f"{Fore.CYAN}Button Pressed{Style.RESET_ALL}: Task Started!")
         print(task_start)
     else:
@@ -46,7 +46,7 @@ def cancel_task():
         print("no task to cancel")
     else:
         task_status = 'cancelled'  # set status to cancelled
-        task_end = datetime.datetime.now()  # timestamp task end
+        task_end = time.time()  # timestamp task end
         print(f"{Fore.RED}Task cancelled!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
 
@@ -59,7 +59,7 @@ def finish_task():
         print("no task to stop.")
     else:
         task_status = 'finished'  # set status to finished
-        task_end = datetime.datetime.now()  # timestamp task end
+        task_end = time.time()  # timestamp task end
         print(f"{Fore.GREEN}Task finished!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
 
@@ -78,7 +78,7 @@ while True:
             cancel_task()
         else:
             finish_task()
-        task_duration = datetime.timedelta(task_end - task_start)
+        task_duration = task_end - task_start
         task = [task_status, task_start, task_end, task_duration]
         print(task)
         task_start = None  # reset task
