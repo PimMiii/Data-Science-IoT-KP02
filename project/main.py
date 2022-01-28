@@ -48,7 +48,7 @@ def start_task():
         print(task_start)
     else:
         print(f"{Fore.YELLOW}Task already running!{Style.RESET_ALL}")
-        print(f"To {Fore.GREEN} finish{Style.RESET_ALL} current task press"
+        print(f"To {Fore.GREEN}finish{Style.RESET_ALL} current task press"
               f" the red button.")
         print(f"To {Fore.RED}cancel{Style.RESET_ALL} current task press"
               f" and hold the red button.")
