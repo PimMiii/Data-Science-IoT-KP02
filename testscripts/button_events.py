@@ -11,7 +11,6 @@ from colorama import Style
 task_start = None
 task_status = None
 task_end = None
-press_duration = 0
 
 green_button = 10
 red_button = 8
@@ -22,18 +21,6 @@ GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-
-def time_press(channel):
-    global start
-    global end
-    global press_duration
-    if GPIO.input(red_button) == 1:
-        start = time.time()
-    if GPIO.input(red_button) == 0:
-        end = time.time()
-        elapsed = end - start
-        press_duration = elapsed
-        print(press_duration)
 
 
 def start_task():
@@ -79,7 +66,7 @@ def finish_task():
 
 
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=200)
-GPIO.add_event_detect(red_button, GPIO.BOTH, callback=time_press, bouncetime=10)
+GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
 
 while True:
     if GPIO.event_detected(green_button):
@@ -87,4 +74,8 @@ while True:
         start_task()
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
-        time.sleep(0.2)
+        if GPIO.wait_for_edge(red_button, GPIO.BOTH, timeout=3000):
+            cancel_task()
+        else:
+            finish_task()
+
