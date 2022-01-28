@@ -46,7 +46,7 @@ def cancel_task():
     press_duration = falling - rising  # duration of button press
     if press_duration < 1:  # short press
         finish_task()
-    elif press_duration > 1:  # long press
+    elif 1 < press_duration < 5:  # long press
         task_status = 'cancelled'  # set status to cancelled
         task_end = datetime.datetime.now()  # timestamp task end
         print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
