@@ -100,7 +100,7 @@ if __name__ == '__main__':
             else:
                 finish_task()
             if task_start:
-                task_duration = task_end - task_start
+                task_duration = round(task_end - task_start, 3)
                 task = [task_status, task_start, task_end, task_duration]
                 print(task)
                 task_start = None  # reset task
