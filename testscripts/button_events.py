@@ -28,6 +28,7 @@ def time_press(channel):
     global start
     global end
     global press_duration
+    start = time.perf_counter()
     if GPIO.input(red_button) == 1:
         start = time.perf_counter()
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
