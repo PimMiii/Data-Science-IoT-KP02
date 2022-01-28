@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
         if time.time() - last_update >= posting_interval:
             date = datetime.datetime.now()
-            date = datetime.datetime.replace(tzinfo=datetime.datetime.utcoffset())
+            date = datetime.datetime.replace(tzinfo=datetime.timezone.utc)
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if humidity is not None and temperature is not None and task is not None:
                 message = {'created_at': date.isoformat(),
