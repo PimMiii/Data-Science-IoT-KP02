@@ -12,19 +12,19 @@ from colorama import Style
 
 # import config file and set its variables
 import config
+
 writeAPIkey = config.writeAPIkey
 channelID = config.channelID
 url = config.url
 
-
 posting_interval = 15  # Post data once every 15 seconds
+last_update = time.time()  # Track the last update time
 
 task = None
 task_status = None
 task_start = None
 task_end = None
 task_duration = None
-
 
 green_button = 10
 red_button = 8
@@ -105,7 +105,7 @@ if __name__ == '__main__':
                 print(task)
                 task_start = None  # reset task
 
-        if time.time() - posting_interval >= 0:
+        if time.time() - last_update >= posting_interval:
             date = datetime.datetime.now()
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if humidity is not None and temperature is not None and task is not None:
@@ -124,5 +124,4 @@ if __name__ == '__main__':
                 print(message)
             else:
                 print("Sensor failure. Check wiring.")
-
-
+            last_update = time.time()
