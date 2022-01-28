@@ -91,14 +91,14 @@ def finish_task():
 def httprequest():
     # Function to send the POST request to ThingSpeak channel for bulk update.
     global message_buffer
-    data = json.dumps({'write_api_key':writeAPIkey,
-                       'updates':message_buffer})  # Format the json data buffer
+    data = {'write_api_key':writeAPIkey,
+                       'updates':message_buffer}  # Format the json data buffer
     r = requests.get(url)
     request_headers = {
         "User-Agent": "mw.doc.bulk-update (Raspberry Pi)",
         "Content-Type": "application/json"}
     print(data)
-    r = requests.post(url, json=data, headers=request_headers)  # Post the data
+    r = requests.post(url, data=json.dumps(data), headers=request_headers)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
