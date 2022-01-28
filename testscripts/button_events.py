@@ -25,6 +25,8 @@ GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def time_press(channel):
+    global start
+    global end
     global press_duration
     if GPIO.input(red_button) == 1:
         start = time.perf_counter()
@@ -85,7 +87,7 @@ def finish_task():
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=400)
 
 GPIO.add_event_detect(red_button, GPIO.BOTH, callback=time_press,
-                      bouncetime=400)
+                      bouncetime=200)
 
 while True:
     if GPIO.event_detected(green_button):
