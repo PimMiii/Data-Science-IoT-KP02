@@ -12,8 +12,8 @@ task_start = None
 task_status = None
 task_end = None
 
-green_button = 8
-red_button = 10
+green_button = 10
+red_button = 8
 
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
@@ -78,6 +78,8 @@ while True:
     if GPIO.event_detected(green_button):
         print(f"{Fore.GREEN}Button Pressed{Style.RESET_ALL}\n")
         start_task()
+        time.sleep(0.2)
     if GPIO.event_detected(red_button):
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
         cancel_task()
+        time.sleep(0.2)
