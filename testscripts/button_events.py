@@ -12,8 +12,8 @@ task_start = None
 task_status = None
 task_end = None
 
-green_button = 8
-red_button = 10
+green_button = 10
+red_button = 8
 
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
