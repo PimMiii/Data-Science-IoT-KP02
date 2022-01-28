@@ -23,6 +23,19 @@ GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
+def time_press(channel):
+    global start
+    global end
+    global press_duration
+    if GPIO.input(red_button) == 1:
+        start = time.time()
+    if GPIO.input(red_button) == 0:
+        end = time.time()
+        elapsed = end - start
+        press_duration = elapsed
+        print(press_duration)
+
+
 def start_task():
     global task_start
     if not task_start:  # if no task is running
@@ -66,7 +79,7 @@ def finish_task():
 
 
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=200)
-GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=10)
+GPIO.add_event_detect(red_button, GPIO.BOTH, callback=time_press, bouncetime=10)
 
 while True:
     if GPIO.event_detected(green_button):
@@ -74,14 +87,4 @@ while True:
         start_task()
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
-        if GPIO.input(red_button) == 1:
-            start = time.perf_counter()
-            print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
-        if GPIO.input(red_button) == 0:
-            end = time.perf_counter()
-            elapsed = end - start
-            press_duration = int(elapsed)
-            if press_duration < 1:  # short press
-                finish_task()
-            elif press_duration >= 1:  # long press
-                cancel_task()
+        time.sleep(0.2)
