@@ -23,7 +23,6 @@ GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-
 def start_task():
     global task_start
     if not task_start:  # if no task is running
@@ -83,7 +82,3 @@ while True:
             task = [task_status, task_start, task_end, task_duration]
             print(task)
             task_start = None  # reset task
-
-
-
-
