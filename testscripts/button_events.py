@@ -23,10 +23,10 @@ GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-def time_press():
+def time_press(channel):
     global press_duration
     rising = time.perf_counter()  # start counter
-    GPIO.wait_for_edge(red_button, GPIO.FALLING,
+    GPIO.wait_for_edge(channel, GPIO.FALLING,
                        timeout=3000)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
@@ -75,7 +75,7 @@ def finish_task():
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=400)
 
 GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=400)
-GPIO.add_event_callback(red_button, time_press())
+GPIO.add_event_callback(red_button, time_press(red_button))
 
 
 while True:
