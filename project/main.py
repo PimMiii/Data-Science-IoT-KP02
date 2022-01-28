@@ -96,9 +96,7 @@ def httprequest():
         "Content-Type": "application/json",
         "Content-Length": str(len(data))}
     print(data)
-    r = requests.post(url, json=data, headers=request_headers)  # Post the data
-    print(r)
-    r = requests.get(url)
+    r = requests.post(url, data, headers=request_headers)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
