@@ -10,6 +10,7 @@ while True:
     if humidity is not None and temperature is not None:
         print(
             "Temp={0:0.1f}C  Humidity={1:0.1f}%".format(temperature, humidity))
+        print("raw data: Temp; " + temperature +"C Humidity; " + humidity)
     else:
         print("Sensor failure. Check wiring.")
     time.sleep(15)
