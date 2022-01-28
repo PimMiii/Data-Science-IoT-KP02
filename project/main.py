@@ -95,7 +95,7 @@ def httprequest():
     data = {'api_key': writeAPIkey,'updates': message_buffer}
 
     print(data)
-    r = requests.post(url, json=data)  # Post the data
+    r = requests.post(url)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
@@ -148,6 +148,8 @@ if __name__ == '__main__':
                 print(message)
                 task = None  # reset task after writing it into the message
             elif humidity is not None and temperature is not None:
+                url = 'https://api.thingspeak.com/update?api_key=JG99HQJ1UYZ54AVH' \
+                      '&field5=' + temperature + '&field6=' + humidity
                 message = {'created_at': date.strftime("%G %X %z"),
                            'field5': temperature,
                            'field6': humidity}
