@@ -46,7 +46,7 @@ def cancel_task():
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
     if press_duration < 1:  # short press
-        print(f"{Fore.CYAN}Short Press{Style.RESET_ALL}: Task not cancelled.")
+        finish_task()
     elif press_duration > 1:  # long press
         task_status = 'cancelled'  # set status to cancelled
         task_end = datetime.datetime.now()  # timestamp task end
@@ -71,13 +71,13 @@ def finish_task():
 
 
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=200)
-GPIO.add_event_callback(green_button, start_task())
 
 GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
-GPIO.add_event_callback(green_button, cancel_task())
 
 while True:
     if GPIO.event_detected(green_button):
         print(f"{Fore.GREEN}Button Pressed{Style.RESET_ALL}\n")
+        task_start()
     if GPIO.event_detected(red_button):
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
+        cancel_task()
