@@ -105,6 +105,7 @@ def httprequest():
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
     else:
         print(f"{Fore.RED}" + str(r.status_code) + f"{Style.RESET_ALL}")
+        print(r.json())
     global last_update
     last_update = time.time()  # Update the connection time
 
