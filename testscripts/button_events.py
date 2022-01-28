@@ -28,9 +28,9 @@ def time_press(channel):
     end = 0
     global press_duration
     if GPIO.input(red_button) == 1:
-        start = time.time()
+        start = time.perf_counter()
     if GPIO.input(red_button) == 0:
-        end = time.time()
+        end = time.perf_counter()
         elapsed = end - start
         press_duration = elapsed
         print(press_duration)
