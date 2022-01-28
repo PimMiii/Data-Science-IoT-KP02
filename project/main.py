@@ -92,10 +92,10 @@ def httprequest():
     # Function to send the POST request to ThingSpeak channel for bulk update.
     global message_buffer
     # Format the json data buffer
-    data = {'write_api_key': writeAPIkey,'updates': message_buffer}
+    data = {'api_key': writeAPIkey,'updates': message_buffer}
 
     print(data)
-    r = requests.post(url, data=json.dumps(data))  # Post the data
+    r = requests.post(url, data=data)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
