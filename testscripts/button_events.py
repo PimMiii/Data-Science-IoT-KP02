@@ -33,7 +33,7 @@ def time_press(channel):
         end = time.time()
         elapsed = end - start
         press_duration = elapsed
-        print(elapsed)
+        print(press_duration)
 
 
 def start_task():
