@@ -1,5 +1,5 @@
-import time
 import datetime
+import time
 
 # import RPi.GPIO to use the GPIO interface on the RPi
 import RPi.GPIO as GPIO
@@ -10,14 +10,21 @@ import Adafruit_DHT as dht
 from colorama import Fore
 from colorama import Style
 
+# import config file and set its variables
+import config
+writeAPIkey = config.writeAPIkey
+channelID = config.channelID
+url = config.url
 
 
-postingInterval = 15 # Post data once every 15 seconds
+posting_interval = 15  # Post data once every 15 seconds
 
-task_start = None
+task = None
 task_status = None
+task_start = None
 task_end = None
 task_duration = None
+
 
 green_button = 10
 red_button = 8
@@ -33,9 +40,7 @@ GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def start_task():
-    '''
-    Starts a task, by timestamping the start time
-    '''
+    # Starts a task, by timestamping the start time
     global task_start
     if not task_start:  # if no task is running
         task_start = time.time()  # timestamp task start
@@ -50,9 +55,7 @@ def start_task():
 
 
 def cancel_task():
-    '''
-    Cancel a task, sets task_Status to cancelled. timestamps end time.
-    '''
+    # Cancel a task, sets task_Status to cancelled. timestamps end time.
     global task_status
     global task_start
     global task_end
@@ -66,9 +69,7 @@ def cancel_task():
 
 
 def finish_task():
-    '''
-    Finished task, sets task_status to finished, and timestamps end time.
-    '''
+    # Finished task, sets task_status to finished, and timestamps end time.
     global task_status
     global task_start
     global task_end
@@ -87,11 +88,11 @@ GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
 
 if __name__ == '__main__':
     while True:
-
         if GPIO.event_detected(green_button):
             print(f"{Fore.GREEN}Button Pressed{Style.RESET_ALL}\n")
             start_task()
             time.sleep(0.2)
+
         if GPIO.event_detected(red_button):
             time.sleep(0.5)  # wait half a second
             if GPIO.input(red_button) == 1:  # check if button is still pressed
@@ -103,4 +104,25 @@ if __name__ == '__main__':
                 task = [task_status, task_start, task_end, task_duration]
                 print(task)
                 task_start = None  # reset task
+
+        if time.time() - posting_interval >= 0:
+            date = datetime.datetime.now()
+            humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
+            if humidity is not None and temperature is not None and task is not None:
+                message = {'created_at': date.strftime("%G %X %z"),
+                           'task_Status': task[0],
+                           'task_start': task[1],
+                           'task_end': task[2],
+                           'task_duration': task[3],
+                           'temp': temperature,
+                           'humidity': humidity}
+                print(message)
+            elif humidity is not None and temperature is not None:
+                message = {'created_at': date.strftime("%G %X %z"),
+                           'temp': temperature,
+                           'humidity': humidity}
+                print(message)
+            else:
+                print("Sensor failure. Check wiring.")
+
 
