@@ -95,7 +95,7 @@ def httprequest():
     data = {'api_key': writeAPIkey,'updates': message_buffer}
 
     print(data)
-    r = requests.post(url, data=data)  # Post the data
+    r = requests.post(url, json=data)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
