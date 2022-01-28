@@ -24,8 +24,8 @@ GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def time_press(channel):
-    global start
-    global end
+    start = 0
+    end = 0
     global press_duration
     if GPIO.input(red_button) == 1:
         start = time.time()
@@ -73,7 +73,7 @@ def finish_task():
     else:
         task_status = 'finished'  # set status to finished
         task_end = datetime.datetime.now()  # timestamp task end
-        print(f"{Fore.GREEN}Task finished!")
+        print(f"{Fore.GREEN}Task finished!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
         task_start = None  # reset task
 
