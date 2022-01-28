@@ -11,6 +11,7 @@ from colorama import Style
 task_start = None
 task_status = None
 task_end = None
+press_duration = None
 
 green_button = 10
 red_button = 8
@@ -20,6 +21,15 @@ GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 # Set pins to be an input pin and set initial value to be pulled low (off)
 GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+
+def time_press():
+    global press_duration
+    rising = time.perf_counter()  # start counter
+    GPIO.wait_for_edge(red_button, GPIO.FALLING,
+                       timeout=5000)  # wait for button to be released
+    falling = time.perf_counter()  # stop counter
+    press_duration = falling - rising  # duration of button press
 
 
 def start_task():
@@ -65,6 +75,7 @@ def finish_task():
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=400)
 
 GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=400)
+GPIO.add_event_callback(red_button, time_press())
 
 
 while True:
@@ -74,11 +85,6 @@ while True:
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
-        rising = time.perf_counter()  # start counter
-        GPIO.wait_for_edge(red_button, GPIO.FALLING,
-                           timeout=5000)  # wait for button to be released
-        falling = time.perf_counter()  # stop counter
-        press_duration = falling - rising  # duration of button press
         if press_duration < 1:  # short press
             finish_task()
         elif 1 < press_duration < 5:  # long press
