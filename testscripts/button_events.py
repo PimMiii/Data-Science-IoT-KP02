@@ -41,8 +41,7 @@ def cancel_task():
     global task_start
     global task_end
     rising = time.perf_counter()  # start counter
-    GPIO.wait_for_edge(green_button,
-                       edge_type=GPIO.FALLING)  # wait for button to be released
+    GPIO.wait_for_edge(red_button, edge_type=GPIO.FALLING)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
     if press_duration < 1:  # short press
