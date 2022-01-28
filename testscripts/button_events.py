@@ -78,7 +78,7 @@ while True:
             cancel_task()
         else:
             finish_task()
-        task_duration = task_end - task_start
+        task_duration = datetime.timedelta(task_end - task_start)
         task = [task_status, task_start, task_end, task_duration]
         print(task)
         task_start = None  # reset task
