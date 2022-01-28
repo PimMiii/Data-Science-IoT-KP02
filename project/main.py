@@ -96,7 +96,7 @@ def httprequest():
         "Content-Type": "application/json",
         "Content-Length": str(len(data))}
     print(data)
-    r = requests.post(url, data, headers=request_headers)  # Post the data
+    r = requests.post(url, json=data, headers=request_headers)  # Post the data
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
@@ -135,9 +135,10 @@ if __name__ == '__main__':
 
         if time.time() - last_update >= posting_interval:
             date = datetime.datetime.now()
+            date = datetime.datetime.replace(tzinfo=datetime.datetime.utcoffset())
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if humidity is not None and temperature is not None and task is not None:
-                message = {'created_at': date.strftime("%G %X %z"),
+                message = {'created_at': date.isoformat(),
                            'task_Status': task[0],
                            'task_start': task[1],
                            'task_end': task[2],
