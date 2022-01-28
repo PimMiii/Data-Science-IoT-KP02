@@ -50,7 +50,7 @@ GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # Set pin 12 to be an output and initial low (off)
-GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)  # light indicator no longer in use
 
 start = None
 end = None
