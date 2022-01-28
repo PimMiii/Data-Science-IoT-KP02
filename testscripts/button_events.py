@@ -75,7 +75,7 @@ def finish_task():
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=400)
 
 GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=400)
-GPIO.add_event_callback(red_button, time_press(red_button))
+GPIO.add_event_callback(red_button, time_press())
 
 
 while True:
