@@ -46,7 +46,7 @@ def cancel_task():
     else:
         task_status = 'cancelled'  # set status to cancelled
         task_end = datetime.datetime.now()  # timestamp task end
-        print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
+        print(f"{Fore.RED}Task cancelled!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
         task_start = None  # reset task
 
@@ -74,8 +74,11 @@ while True:
         start_task()
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
-        if GPIO.wait_for_edge(red_button, GPIO.BOTH, timeout=3000):
+        time.sleep(0.5)
+        if GPIO.input(red_button) == 1:
             cancel_task()
         else:
             finish_task()
+
+
 
