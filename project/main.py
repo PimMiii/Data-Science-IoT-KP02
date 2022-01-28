@@ -149,7 +149,7 @@ if __name__ == '__main__':
                 task = None  # reset task after writing it into the message
             elif humidity is not None and temperature is not None:
                 url = 'https://api.thingspeak.com/update?api_key=JG99HQJ1UYZ54AVH' \
-                      '&field5=' + temperature + '&field6=' + humidity
+                      '&field5=' + str(temperature) + '&field6=' + str(humidity)
                 message = {'created_at': date.strftime("%G %X %z"),
                            'field5': temperature,
                            'field6': humidity}
