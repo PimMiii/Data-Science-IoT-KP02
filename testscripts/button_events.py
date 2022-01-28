@@ -30,7 +30,6 @@ def time_press(channel):
                        timeout=3000)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
-    return press_duration
 
 
 def start_task():
