@@ -158,6 +158,7 @@ if __name__ == '__main__':
             else:
                 print(f"{Fore.RED}Sensor failure. Check wiring."
                       f"{Style.RESET_ALL}")
-            message_buffer.append(message)
-
-            httprequest()
+            if message is not None:
+                message_buffer.append(message)
+            if message_buffer is not None:
+                httprequest()
