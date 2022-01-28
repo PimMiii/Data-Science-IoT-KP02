@@ -117,6 +117,7 @@ if __name__ == '__main__':
                            'temp': temperature,
                            'humidity': humidity}
                 print(message)
+                task = None  # reset task after writing it into the message
             elif humidity is not None and temperature is not None:
                 message = {'created_at': date.strftime("%G %X %z"),
                            'temp': temperature,
