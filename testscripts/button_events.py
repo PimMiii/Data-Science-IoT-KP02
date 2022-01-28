@@ -30,6 +30,7 @@ def time_press(channel):
                        timeout=3000)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
+    return press_duration
 
 
 def start_task():
@@ -74,8 +75,9 @@ def finish_task():
 
 GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=400)
 
-GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=400)
-GPIO.add_event_callback(red_button, time_press())
+GPIO.add_event_detect(red_button, GPIO.RISING, callback=time_press(red_button),
+                      bouncetime=400)
+
 
 
 while True:
