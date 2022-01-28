@@ -40,18 +40,11 @@ def cancel_task():
     global task_status
     global task_start
     global task_end
-    rising = time.perf_counter()  # start counter
-    GPIO.wait_for_edge(red_button, GPIO.FALLING, timeout=5000)  # wait for button to be released
-    falling = time.perf_counter()  # stop counter
-    press_duration = falling - rising  # duration of button press
-    if press_duration < 1:  # short press
-        finish_task()
-    elif 1 < press_duration < 5:  # long press
-        task_status = 'cancelled'  # set status to cancelled
-        task_end = datetime.datetime.now()  # timestamp task end
-        print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
-        print(str(task_end) + "\n\n")
-        task_start = None  # reset task
+    task_status = 'cancelled'  # set status to cancelled
+    task_end = datetime.datetime.now()  # timestamp task end
+    print(f"{Fore.RED}Long Press{Style.RESET_ALL}: Task cancelled!")
+    print(str(task_end) + "\n\n")
+    task_start = None  # reset task
 
 
 def finish_task():
@@ -81,5 +74,12 @@ while True:
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
         print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
-        cancel_task()
-        time.sleep(0.2)
+        rising = time.perf_counter()  # start counter
+        GPIO.wait_for_edge(red_button, GPIO.FALLING,
+                           timeout=5000)  # wait for button to be released
+        falling = time.perf_counter()  # stop counter
+        press_duration = falling - rising  # duration of button press
+        if press_duration < 1:  # short press
+            finish_task()
+        elif 1 < press_duration < 5:  # long press
+            cancel_task()
