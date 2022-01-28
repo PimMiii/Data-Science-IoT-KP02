@@ -18,6 +18,9 @@ import config
 writeAPIkey = config.writeAPIkey
 channelID = config.channelID
 url = config.url
+print(f"{Fore.CYAN}APIKey: {Style.RESET_ALL}" + writeAPIkey)
+print(f"{Fore.CYAN}ChannelID: {Style.RESET_ALL}" + channelID)
+print(f"{Fore.CYAN}URL: {Style.RESET_ALL}" + url)
 
 posting_interval = 15  # Post data once every 15 seconds
 last_update = time.time()  # Track the last update time
