@@ -8,6 +8,19 @@ import RPi.GPIO as GPIO
 from colorama import Fore
 from colorama import Style
 
+task_start = None
+task_status = None
+task_end = None
+
+green_button = 8
+red_button = 10
+
+GPIO.setwarnings(False)  # Ignore warning for now
+GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
+# Set pins to be an input pin and set initial value to be pulled low (off)
+GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 
 def start_task():
     global task_start
@@ -28,7 +41,8 @@ def cancel_task():
     global task_start
     global task_end
     rising = time.perf_counter()  # start counter
-    GPIO.wait_for_edge(green_button, edge_type=GPIO.FALLING)  # wait for button to be released
+    GPIO.wait_for_edge(green_button,
+                       edge_type=GPIO.FALLING)  # wait for button to be released
     falling = time.perf_counter()  # stop counter
     press_duration = falling - rising  # duration of button press
     if press_duration < 1:  # short press
@@ -56,28 +70,11 @@ def finish_task():
         task_start = None  # reset task
 
 
-
-
-
-task_start = None
-task_status = None
-task_end = None
-
-
-green_button = 8
-red_button = 10
-task_start = None
-
-GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime= 200)
+GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=200)
 GPIO.add_event_callback(green_button, start_task())
 
-GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime= 200)
+GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
 GPIO.add_event_callback(green_button, cancel_task())
-GPIO.setwarnings(False)  # Ignore warning for now
-GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
-# Set pins to be an input pin and set initial value to be pulled low (off)
-GPIO.setup(green_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(red_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 while True:
     if GPIO.event_detected(green_button):
