@@ -142,18 +142,18 @@ if __name__ == '__main__':
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if humidity is not None and temperature is not None and task is not None:
                 message = {'created_at': date.isoformat(),
-                           'task_Status': task[0],
-                           'task_start': task[1],
-                           'task_end': task[2],
-                           'task_duration': task[3],
-                           'temp': temperature,
-                           'humidity': humidity}
+                           'field1': task[0],
+                           'field2t': task[1],
+                           'field3': task[2],
+                           'field4': task[3],
+                           'field5': temperature,
+                           'field6': humidity}
                 print(message)
                 task = None  # reset task after writing it into the message
             elif humidity is not None and temperature is not None:
                 message = {'created_at': date.strftime("%G %X %z"),
-                           'temp': temperature,
-                           'humidity': humidity}
+                           'field5': temperature,
+                           'field6': humidity}
                 print(message)
             else:
                 print(f"{Fore.RED}Sensor failure. Check wiring."
