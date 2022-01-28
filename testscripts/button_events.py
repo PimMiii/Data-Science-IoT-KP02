@@ -31,10 +31,15 @@ def time_press(channel):
     global press_duration
     if GPIO.input(red_button) == 1:
         start = time.perf_counter()
+        print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
     if GPIO.input(red_button) == 0:
         end = time.perf_counter()
         elapsed = end - start
         press_duration = elapsed
+        if press_duration < 1:  # short press
+            finish_task()
+        elif 1 < press_duration < 3 and task_start:  # long press
+            cancel_task()
         print(press_duration)
 
 
@@ -91,9 +96,6 @@ while True:
         start_task()
         time.sleep(0.2)
     if GPIO.event_detected(red_button):
-        print(f"{Fore.RED}Button Pressed{Style.RESET_ALL}\n")
-        if press_duration < 1:  # short press
-            finish_task()
-        elif 1 < press_duration < 3 and task_start:  # long press
-            cancel_task()
         time.sleep(0.2)
+
+
