@@ -93,9 +93,10 @@ def httprequest():
     r = requests.get(url)
     request_headers = {
         "User-Agent": "mw.doc.bulk-update (Raspberry Pi)",
-        "Content-Type": "application/json"}
+        "Content-Type": "application/json",
+        "Content-Length":str(len(data))}
     print(data)
-    r = requests.post(url, json=data)  # Post the data
+    r = requests.post(url, json=data, headers=request_headers)  # Post the data
     r = requests.get(url)
     if r.status_code == 202:
         message_buffer = []  # Reinitialize the message buffer
