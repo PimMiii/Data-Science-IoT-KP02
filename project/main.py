@@ -156,5 +156,5 @@ if __name__ == '__main__':
                       f"{Style.RESET_ALL}")
             if message != '':
                 message_buffer.append(message)
-                message = ''
                 httprequest()
+                message = ''
