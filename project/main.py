@@ -142,8 +142,8 @@ if __name__ == '__main__':
             date = datetime.datetime.replace(date, tzinfo=datetime.timezone.utc)
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
             if task is not None:
-                message = message + '&field1' + str(task[0]) + '&field2' + str(
-                    task[1]) + '&field3' + str(task[2]) + '&field4' + str(
+                message = message + '&field1=' + str(task[0]) + '&field2=' + str(
+                    task[1]) + '&field3=' + str(task[2]) + '&field4=' + str(
                     task[3])
                 task = None  # reset task after writing it into the message
             if humidity is not None and temperature is not None:
