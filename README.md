@@ -49,7 +49,7 @@ Channel consists of 6 fields:
 2. Start time (timestamp of the task starting time)
 3. End time (timestamp of the task ending time)
 4. Duration (time it took for task to be completed in seconds)
-5. Temperature (Temperature reported by DHT11, Room Temperatre in °C)
+5. Temperature (Temperature reported by DHT11, Room Temperature in °C)
 6. Humidity (Humidity reported by DHT11)
 
 ### install requirements 
