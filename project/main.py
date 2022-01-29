@@ -18,9 +18,6 @@ import config
 writeAPIkey = config.writeAPIkey
 channelID = config.channelID
 url = config.url
-print(f"{Fore.CYAN}APIKey: {Style.RESET_ALL}" + writeAPIkey)
-print(f"{Fore.CYAN}ChannelID: {Style.RESET_ALL}" + channelID)
-print(f"{Fore.CYAN}URL: {Style.RESET_ALL}" + url)
 
 posting_interval = 15  # Post data once every 15 seconds
 last_update = time.time()  # Track the last update time
@@ -111,6 +108,12 @@ GPIO.add_event_detect(green_button, GPIO.RISING, bouncetime=200)
 GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
 
 if __name__ == '__main__':
+    # print APIKey, channelID and url to console for human verification
+    print(f"{Fore.CYAN}APIKey: {Style.RESET_ALL}" + writeAPIkey)
+    print(f"{Fore.CYAN}ChannelID: {Style.RESET_ALL}" + channelID)
+    print(f"{Fore.CYAN}URL: {Style.RESET_ALL}" + url)
+
+    # main loop
     while True:
         if GPIO.event_detected(green_button):
             print(f"{Fore.GREEN}Button Pressed{Style.RESET_ALL}\n")
