@@ -65,7 +65,7 @@ def cancel_task():
     if not task_start:
         print("no task to cancel")
     else:
-        task_status = 'cancelled'  # set status to cancelled
+        task_status = 0  # set status to 0 (cancelled)
         task_end = time.time()  # timestamp task end
         print(f"{Fore.RED}Task cancelled!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
@@ -79,7 +79,7 @@ def finish_task():
     if not task_start:
         print("no task to stop.")
     else:
-        task_status = 'finished'  # set status to finished
+        task_status = 1  # set status to finished
         task_end = time.time()  # timestamp task end
         print(f"{Fore.GREEN}Task finished!{Style.RESET_ALL}")
         print(str(task_end) + "\n\n")
