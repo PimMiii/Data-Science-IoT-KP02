@@ -137,6 +137,7 @@ if __name__ == '__main__':
                 task_start = None  # reset task
 
         if time.time() - last_update >= posting_interval:
+            message = None
             date = datetime.datetime.now()
             date = datetime.datetime.replace(date, tzinfo=datetime.timezone.utc)
             humidity, temperature = dht.read(DHT_SENSOR, DHT_PIN)
@@ -155,5 +156,4 @@ if __name__ == '__main__':
                       f"{Style.RESET_ALL}")
             if message is not None:
                 message_buffer.append(message)
-            if message_buffer is not None:
                 httprequest()
