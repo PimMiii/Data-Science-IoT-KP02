@@ -13,11 +13,8 @@ from colorama import Fore
 from colorama import Style
 
 # import config file and set its variables
-import config
+from config import write_api_key, channel_id, write_url
 
-writeAPIkey = config.writeAPIkey
-channelID = config.channelID
-url = config.url
 
 posting_interval = 15  # Post data once every 15 seconds
 last_update = time.time()  # Track the last update time
@@ -89,10 +86,10 @@ def httprequest():
     # Function to send the POST request to ThingSpeak channel for bulk update.
     global message_buffer
     # Format the json data buffer
-    data = {'api_key': writeAPIkey,'updates': message_buffer}
+    data = {'api_key': write_api_key, 'updates': message_buffer}
 
     print(data)
-    r = requests.post(url=url + message_buffer[0])  # Post the data
+    r = requests.post(url=write_url + message_buffer[0])  # Post the data
     if r.status_code == 200:
         message_buffer = []  # Reinitialize the message buffer
         print(f"{Fore.GREEN}" + str(r.status_code) + f"{Style.RESET_ALL}")
@@ -109,9 +106,9 @@ GPIO.add_event_detect(red_button, GPIO.RISING, bouncetime=200)
 
 if __name__ == '__main__':
     # print APIKey, channelID and url to console for human verification
-    print(f"{Fore.CYAN}APIKey: {Style.RESET_ALL}" + writeAPIkey)
-    print(f"{Fore.CYAN}ChannelID: {Style.RESET_ALL}" + channelID)
-    print(f"{Fore.CYAN}URL: {Style.RESET_ALL}" + url)
+    print(f"{Fore.CYAN}APIKey: {Style.RESET_ALL}" + write_api_key)
+    print(f"{Fore.CYAN}ChannelID: {Style.RESET_ALL}" + channel_id)
+    print(f"{Fore.CYAN}URL: {Style.RESET_ALL}" + write_url)
 
     # main loop
     while True:
