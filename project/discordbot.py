@@ -2,7 +2,7 @@ import discord
 import asyncio
 import logging
 
-from config import discord_bot_token
+from config import discord_bot_token, discord_bot_prefix
 
 
 logger = logging.getLogger('discord')
@@ -29,12 +29,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    async def on_message(message):
-        if message.author == client.user:
-            return
+    if message.author == client.user:
+        return
 
-        if message.content.startswith('$hello'):
-            await message.channel.send('Hello!')
+    if message.content.startswith(discord_bot_prefix + 'hello'):
+        await message.channel.send('Hello!')
 
 if __name__ == '__main__':
     client.run(discord_bot_token)
