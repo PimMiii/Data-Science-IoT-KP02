@@ -6,3 +6,7 @@ writeAPIkey = "YOUR-CHANNEL-WRITEAPIKEY"
 channelID = "YOUR-CHANNELID"
 # ThingSpeak server settings
 url = "https://api.thingspeak.com/update?api_key=" + writeAPIkey
+
+
+# If you want to use the Discord Bot as well enter your bot's Token here
+discord_bot_token = "YOUR-TOKEN-HERE"
