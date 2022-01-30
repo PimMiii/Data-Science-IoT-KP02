@@ -1,2 +1,4 @@
 Adafruit_DHT==1.4.0
 colorama==0.4.4
+discord.py==1.7.3
+requests==2.27.1
