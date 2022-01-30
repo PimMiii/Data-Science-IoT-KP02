@@ -13,3 +13,9 @@ url = "https://api.thingspeak.com/update?api_key=" + writeAPIkey
 discord_bot_token = "DISCORD-BOT-TOKEN"
 # the prefix the bot will look for. default = !
 discord_bot_prefix = "!"
+
+#  configure your thingspeak READING information here
+#  only used if bot is also in use!
+
+# Replace YOUR-CHANNEL-READAPIKEY with your channel read API key
+read_api_key = "YOUR-CHANNEL-READAPIKEY"
