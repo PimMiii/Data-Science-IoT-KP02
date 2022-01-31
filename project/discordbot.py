@@ -76,6 +76,10 @@ async def on_message(message):
         )
         await message.channel.send(embed=embed)
 
+'''
+# Can't seem to figure this stuff out before the deadline.
+# and to be quite honest i have no real clue what im even trying to accomplish
+# with the code here. Oops
 
 @tasks.loop(seconds=15)
 async def check_task_completion(self):
@@ -123,8 +127,8 @@ async def check_task_completion(self):
 async def before_checking(self):
     print('waiting')
     await self.client.wait_until_ready()
-
+'''
 
 if __name__ == '__main__':
-    check_task_completion.start(client)
+    # check_task_completion.start(client)
     client.run(discord_bot_token)
