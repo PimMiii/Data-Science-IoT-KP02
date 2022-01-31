@@ -15,7 +15,7 @@ def read_httprequest(results_count=1, minutes=1):
 
     r = requests.get(url=read_url, params=params)  # request the results data
     if r.status_code == 200:  # 200: all is well
-        r = r.json()
+        print(r.status_code)
         if r is not None:
             req_data = r
             return req_data
