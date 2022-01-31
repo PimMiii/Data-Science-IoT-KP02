@@ -36,6 +36,9 @@ to be more positive towards myself.
 
 ## The Project
 
+### Pipeline
+<img src="img/IoT Pipeline.jpg"/>
+
 ### Required hardware
 - Raspberry Pi 3a+ or newer
 - DHT11 sensor
