@@ -111,9 +111,7 @@ The DHT11 does seem prone to errors, and even still in the current prototype see
 time to time.  
 At the same time as the DHT11 sensor arrived, the new fancier buttons arrived as well, so time to test those and see
 their fancy LED lights. 
-<img src="img/prototype/prototype01.jpg"/>
-<small> The on/off button LEDs still worked here. I think I ended up shorting them out or something. Oops</small>  
-
+<img src="img/prototype/prototype01.jpg"/> 
 I confirmed they worked as expected, but somewhere in the process (either during soldering or during wiring to the
 breadboard) I seem to have fried the LEDs in the on/off button. 
 
