@@ -47,7 +47,7 @@ Due to this being the first time having to work with GET and POST requests. Whic
 retrieving to/from ThingSpeak.
 - The Disccord-bot I once made as little project for myself, which I could refurbish (and update it's quite obsolete code)
 to work for this project.
-- And the past ten years (on and off) in which I ~~not so succesfully~~ tried to teach myself programming in Python through reading/ following along with
+- And the past ten years (more off than on) in which I ~~not so succesfully~~ tried to teach myself programming in Python through reading/ following along with
 books like: Python Crash Course (by Eric Matthes), and others.
 
 ### Inspired by
