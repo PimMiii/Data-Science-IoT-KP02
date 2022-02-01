@@ -48,6 +48,7 @@ async def on_message(message):
 
     # print temperature and humidity as embed, on command temp
     if message.content.startswith(discord_bot_prefix + 'temp'):
+        global data
         if 'data' not in globals():
             data = None
         data = update_data(data)

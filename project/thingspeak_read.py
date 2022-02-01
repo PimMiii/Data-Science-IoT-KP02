@@ -11,13 +11,16 @@ last_update = time.time()
 def read_httprequest(results_count=1, minutes=1):
     # Format the GET parameters
     params = {'api_key': read_api_key, 'results': results_count,
-              'minutes':minutes}
+              'minutes': minutes}
+
 
     r = requests.get(url=read_url, params=params)  # request the results data
+    print(r.url)
     if r.status_code == 200:  # 200: all is well
         print(r.status_code)
         if r is not None:
             req_data = r.json()
+            print(req_data)
             return req_data
     else:  # something went wrong
         print(r.status_code)
