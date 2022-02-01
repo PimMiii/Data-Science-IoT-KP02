@@ -109,6 +109,7 @@ And writing the first simple button_test.py script. just to turn on some LEDs.
 After that I tested the DHT11 sensor, separately with the DHT11_Test.py script, and confirmed that it worked okay-ish.  
 The DHT11 does seem prone to errors, and even still in the current prototype seems to exhibit some weird behaviour from
 time to time.  
+
 At the same time as the DHT11 sensor arrived, the new fancier buttons arrived as well, so time to test those and see
 their fancy LED lights. 
 <img src="img/prototype/prototype01.jpg"/> 
@@ -118,3 +119,19 @@ breadboard) I seem to have fried the LEDs in the on/off button.
 Now it became time to combine the two test scripts into the main.py script. And that went over quite smoothly.
 It's when it came time to start sending the data to ThingSpeak things took a turn... 
 
+I couldn't seem to get the original given code working (py2), and never really noticed there was a py3 version given as well
+in the course files, even after doing my own bit of converting it over from py2 urllib2 to py3 Requests module.  
+Countless hours of 401 and 400 status codes, I gave up defeated for the night.  
+The next day I decided to switch away from doing bulk updates to ThingSpeak and rather just do a single update at a time.
+With a seemingly easier syntax, as it's just appending the fields and values as GET parameters to the update link.  
+I finally got data to post to ThingSpeak. The reading of the Requests documentation had paid off.
+
+Now that I had a script posting data to ThingSpeak it was time to let the script run through the night and see what data it produces.  
+It turned out the DHT11 sends some spiky reading from time to time, which i still cant figure out. At first I figured
+I must be sending reading errors to ThingSpeak, so I made sure there is no data transfer on DHT 11 reading errors. But still
+I'm sometimes presented with spiky readings in ThingSpeak.
+<img src="img/thingspeakspikes.png">
+
+Writing the bot came with it's own struggles.  
+At first the code I still had lying around didn't work anymore. It was for a way older version of discord.py than
+the current one. So in I went to read the docs on discord.py to figure out what I had to change.  
