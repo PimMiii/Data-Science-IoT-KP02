@@ -37,7 +37,7 @@ to be more positive towards myself.
 ## The Project
 
 ### Pipeline
-<img src="img/IoT Pipeline.jpg">
+<img src="img/IoT Pipeline.jpg"/>
 
 ### Required hardware
 - Raspberry Pi 3a+ or newer
@@ -59,12 +59,20 @@ Channel consists of 6 fields:
 to install the required modules on RPi:  
 ```$ pip install -r requirements.txt ```
 
-### The Prototype
-<img src="img/prototype/prototype01.jpg">
-<img src="img/prototype/prototype02.jpg">
-<img src="img/prototype/prototype03.jpg">
+## The Prototype
+
+The prototype is nothing more than a bunch of wires, and 2 small cardboard boxes the components arrived in by mail.  
+Held together by (packing) tape, with some holes cut into the cardboard for ventilation/ wires.  
+And finally a hole on the top covered up with the same tape to create some sort of 'window' to peer into the innerwirings.  
+
+### pictures
+<img src="img/prototype/prototype01.jpg"/>
+<small> The on/off button LEDs still worked here. I think i ended up shorting them out or something. Oops</small>
 <img src="img/prototype/prototype04.jpg">
-<img src="img/prototype/prototype05.jpg">
-<img src="img/prototype/prototype06.jpg">
-<img src="img/prototype/prototype07.jpg">
+<img src="img/prototype/prototype03.jpg"/>
+<small> there's a lot of wires coming from the buttons. the right most button is the on/off button.</small>
 <img src="img/prototype/prototype08.jpg">
+<img src="img/prototype/prototype05.jpg">
+<img src="img/prototype/prototype07.jpg">
+<img src="img/prototype/prototype06.jpg">
+<img src="img/prototype/prototype02.jpg">
