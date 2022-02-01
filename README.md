@@ -37,7 +37,7 @@ to be more positive towards myself.
 ## The Project
 
 ### Pipeline
-<img src="img/IoT Pipeline.jpg"/>
+<img src="img/IoT Pipeline.jpg">
 
 ### Required hardware
 - Raspberry Pi 3a+ or newer
@@ -48,14 +48,23 @@ to be more positive towards myself.
 
 ### Thingspeak channel
 Channel consists of 6 fields:
-1. Completion (is task completed: 0 = cancelled/not completed, 1 = completed)
-2. Start time (timestamp of the task starting time)
-3. End time (timestamp of the task ending time)
-4. Duration (time it took for task to be completed in seconds)
-5. Temperature (Temperature reported by DHT11, Room Temperature in °C)
-6. Humidity (Humidity reported by DHT11)
+1. `task_status` (is task completed: 0 = cancelled/not completed, 1 = completed)
+2. `task_start` (timestamp of the task starting time)
+3. `task_end` (timestamp of the task ending time)
+4. `task_duration` (time it took for task to be completed in seconds)
+5. `temp` (Temperature reported by DHT11, Room Temperature in °C)
+6. `humidity` (Humidity reported by DHT11)
 
 ### install requirements 
 to install the required modules on RPi:  
-``` pip install -r requirements.txt ```
+```$ pip install -r requirements.txt ```
 
+### The Prototype
+<img src="img/prototype/prototype01.jpg">
+<img src="img/prototype/prototype02.jpg">
+<img src="img/prototype/prototype03.jpg">
+<img src="img/prototype/prototype04.jpg">
+<img src="img/prototype/prototype05.jpg">
+<img src="img/prototype/prototype06.jpg">
+<img src="img/prototype/prototype07.jpg">
+<img src="img/prototype/prototype08.jpg">
