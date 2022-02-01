@@ -23,6 +23,7 @@ logger.addHandler(handler)
 
 client = discord.Client()
 
+data = None
 
 # set the on_ready event
 @client.event

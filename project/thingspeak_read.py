@@ -17,7 +17,7 @@ def read_httprequest(results_count=1, minutes=1):
     if r.status_code == 200:  # 200: all is well
         print(r.status_code)
         if r is not None:
-            req_data = r
+            req_data = r.json()
             return req_data
     else:  # something went wrong
         print(r.status_code)
