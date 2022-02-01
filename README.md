@@ -92,8 +92,6 @@ Held together by (packing) tape, with some holes cut into the cardboard for vent
 And finally a hole on the top covered up with the same tape to create some sort of 'window' to peer into the innerwirings.  
 
 ### pictures
-<img src="img/prototype/prototype01.jpg"/>
-<small> The on/off button LEDs still worked here. I think i ended up shorting them out or something. Oops</small>
 <img src="img/prototype/prototype04.jpg">
 <img src="img/prototype/prototype03.jpg"/>
 <small> there's a lot of wires coming from the buttons. the right most button is the on/off button.</small>
@@ -105,5 +103,19 @@ And finally a hole on the top covered up with the same tape to create some sort 
 
 ## The Process
 I started off with just wiring up some buttons I already had onto a breadboard and the GPIO pins on the RPi.
-And writing the first simple button_test.py script. just to turn on some LEDs.
-[![Watch the video](https://img.youtube.com/vi/Oq14UJqhHEA/hqdefault.jpg)](https://youtu.be/Oq14UJqhHEA)
+And writing the first simple button_test.py script. just to turn on some LEDs.  
+<a href="https://youtu.be/Oq14UJqhHEA">youtube: button test </a>  
+[![Watch the video](https://img.youtube.com/vi/Oq14UJqhHEA/hqdefault.jpg)](https://youtu.be/Oq14UJqhHEA)  
+After that I tested the DHT11 sensor, separately with the DHT11_Test.py script, and confirmed that it worked okay-ish.  
+The DHT11 does seem prone to errors, and even still in the current prototype seems to exhibit some weird behaviour from
+time to time.  
+At the same time as the DHT11 sensor arrived, the new fancier buttons arrived as well, so time to test those and see
+their fancy LED lights. 
+<img src="img/prototype/prototype01.jpg"/>
+<small> The on/off button LEDs still worked here. I think I ended up shorting them out or something. Oops</small>  
+I confirmed they worked as expected, but somewhere in the process (either during soldering or during wiring to the
+breadboard) I seem to have fried the LEDs in the on/off button. 
+
+Now it became time to combine the two test scripts into the main.py script. And that went over quite smoothly.
+It's when it came time to start sending the data to ThingSpeak things took a turn... 
+
