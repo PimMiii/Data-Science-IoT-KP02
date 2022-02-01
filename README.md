@@ -30,8 +30,34 @@ But also getting more comfortable navigating the commandline by using the pi thr
 Getting to play around with a IoT/data science pipeline is a welcome addition as well, and a new experience for sure.  
 Furthermore, general coding/programming experience is always welcome.  
 And finally, personal-growth/ learning would come from the overall end goal of the project, the positive reinforcement, and learning
-to be more positive towards myself.
-  
+to be more positive towards myself.    
+
+### Prior experience
+Prior experiences for this project are:
+- My Project in the First Period of this schoolyear: <a href="https://makecode.adafruit.com/90475-47648-89981-11445">
+Trashy</a>.  
+It's relevant due to it also being an IoT project. So this was the first time I worked with sensors, soldering,
+electrical wires, and in/output to a microcontroller. In the case of Trashy this was a Circuit Playground Express.  
+I could use this experience directly in this course and project.
+- My Project for the current (second) period of this schoolyear: <a href="https://github.com/PimMiii/cmgthrcle2">Webshop: EasyGoods</a>.  
+Due to this being the first time having to work with GET and POST requests. Which came in handy with sending and
+retrieving to/from ThingSpeak.
+- The Disccord-bot I once made as little project for myself, which I could refurbish (and update it's quite obsolete code)
+to work for this project.
+- And the past ten years (on and off) in which I ~~not so succesfully~~ tried to teach myself programming in Python through reading/ following along with
+books like: Python Crash Course (by Eric Matthes), and others.
+
+### Inspired by
+For this project I mostly got inspired by my therapist (👋), my (in)ability to be just that little nicer to myself, 
+my inability to keep to a planning I've made, and my knack for procrastination.  
+Which I aim to try and combat with this project.
+
+### Includes references from  
+Code snippets (and the input/sensor test-scripts) are referenced from various sources.
+- <a href="https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/">The Geek Pub, USING THE DHT11 TEMPERATURE SENSOR WITH THE RASPBERRY PI. Posted by Mike Murray </a>
+- <a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">The RPi.GPIO python docs/wiki</a>
+- <a href="https://discordpy.readthedocs.io/en/stable/index.html">The discord.py docs </a>
+- <a href="https://docs.python-requests.org/en/master/user/quickstart/">The Requests python docs</a>
   
 
 ## The Project
