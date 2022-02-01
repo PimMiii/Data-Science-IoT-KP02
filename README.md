@@ -4,14 +4,14 @@ Data-Science-IoT Keuzevak HR periode 02 2022.
 # PRiTC
 ***P***ositive ***R***e***i***nforcement upon ***T***ask ***C***ompletion
 
-## Problem
+### Problem
 I seem to have a pattern of procrastination, which sooner rather than later will come to haunt me.
 
 Maybe it already has, seeing how my first idea for a project was a 'smart' (read ring-like) doorbell,
 but knowing virtually nothing about image processing makes that seem like a daunting task,
 especially if it needs to be finished before the deadline.  
 
-## Goal of the Project
+### Goal of the Project
 So on to the current idea: **PRiTC**.  
 Positive Reinforcement upon Task Completion, a discord bot sending positive and encouraging messages to myself.  
 The idea sounds simple enough yet effective.    
@@ -85,7 +85,7 @@ Channel consists of 6 fields:
 to install the required modules on RPi:  
 ```$ pip install -r requirements.txt ```
 
-## The Prototype
+## The (working) Prototype
 
 The prototype is nothing more than a bunch of wires, and 2 small cardboard boxes the components arrived in by mail.  
 Held together by (packing) tape, with some holes cut into the cardboard for ventilation/ wires.  
@@ -102,3 +102,8 @@ And finally a hole on the top covered up with the same tape to create some sort 
 <img src="img/prototype/prototype07.jpg">
 <img src="img/prototype/prototype06.jpg">
 <img src="img/prototype/prototype02.jpg">
+
+## The Process
+I started off with just wiring up some buttons I already had onto a breadboard and the GPIO pins on the RPi.
+And writing the first simple button_test.py script. just to turn on some LEDs.
+[![Watch the video](https://img.youtube.com/vi/Oq14UJqhHEA/hqdefault.jpg)](https://youtu.be/Oq14UJqhHEA)
