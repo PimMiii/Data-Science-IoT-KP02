@@ -13,8 +13,8 @@ write_url = "https://api.thingspeak.com/update?api_key=" + write_api_key
 discord_bot_token = "DISCORD-BOT-TOKEN"
 # the prefix the bot will look for. default = !
 discord_bot_prefix = "!"
-# your USER-ID for the bot to DM you on task completion
-discord_user_id = "SNOWFLAKE-ID"
+# CHANNEL-ID for the channel you want the bot to message in on task completion
+discord_channel_id = "CHANNEL-ID"
 
 
 #  configure your thingspeak READING information here
