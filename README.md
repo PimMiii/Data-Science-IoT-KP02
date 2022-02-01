@@ -143,6 +143,7 @@ And finally a hole on the top covered up with the same tape to create some sort 
 <img src="img/prototype/prototype04.jpg">
 <img src="img/prototype/prototype03.jpg"/>
 <small> there's a lot of wires coming from the buttons. the right most button is the on/off button.</small>
+<img src="img/IoT breadboard.jpg"/>
 <img src="img/prototype/prototype08.jpg">
 <img src="img/prototype/prototype05.jpg">
 <img src="img/prototype/prototype07.jpg">
