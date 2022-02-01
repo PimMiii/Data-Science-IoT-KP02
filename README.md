@@ -127,9 +127,9 @@ Using the embeds bots can send on discord, and through the relatively straightfo
 this was a quick process.  
 <img src="img/embed.png"/>  
   
-Now came the hardest and for now impossible problem to solve.  
+Now came the hardest and, for now, impossible problem to solve.  
 How can I make the bot check the data from ThingSpeak every x seconds, and act on it when a task is reported as completed.  
-the coroutine / async/await programming is still out of my league, and i'll have to do some learning and researching on
+the coroutine / async/await programming is still out of my league, and I'll have to do some learning and researching on
 that kind of programming/structure before I can solve this problem I'm afraid.  
 My first couple solutions weren't fruitious.
 
@@ -152,5 +152,12 @@ And finally a hole on the top covered up with the same tape to create some sort 
 
 
 ## Future Plans
-
-
+Unfortunately I couldn't complete the project before the deadline.  
+It is functional, but that's about it.  
+  
+So what would I like to add?
+- Discord-bot messages upon task completion
+- Discord-bot graph functionality (temp and humidity)
+- Discord-bot graph/ stats functionality (task/day, task completion stats on different temp/humidity)
+- Visualisation of effect humidity/temp has on my productivity, if any.
+- Average task duration stats
