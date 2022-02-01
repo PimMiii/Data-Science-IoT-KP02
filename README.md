@@ -4,6 +4,9 @@ Data-Science-IoT Keuzevak HR periode 02 2022.
 # PRiTC
 ***P***ositive ***R***e***i***nforcement upon ***T***ask ***C***ompletion
 
+<a href="https://youtu.be/Oq14UJqhHEA">youtube: PRiTC demonstration </a>  
+[![Watch the video](https://img.youtube.com/vi/JOLxFL0_3Nk/hqdefault.jpg)](https://www.youtube.com/watch?v=JOLxFL0_3Nk)  
+
 ### Problem
 I seem to have a pattern of procrastination, which sooner rather than later will come to haunt me.
 
@@ -85,22 +88,6 @@ Channel consists of 6 fields:
 to install the required modules on RPi:  
 ```$ pip install -r requirements.txt ```
 
-## The (working) Prototype
-
-The prototype is nothing more than a bunch of wires, and 2 small cardboard boxes the components arrived in by mail.  
-Held together by (packing) tape, with some holes cut into the cardboard for ventilation/ wires.  
-And finally a hole on the top covered up with the same tape to create some sort of 'window' to peer into the innerwirings.  
-
-### pictures
-<img src="img/prototype/prototype04.jpg">
-<img src="img/prototype/prototype03.jpg"/>
-<small> there's a lot of wires coming from the buttons. the right most button is the on/off button.</small>
-<img src="img/prototype/prototype08.jpg">
-<img src="img/prototype/prototype05.jpg">
-<img src="img/prototype/prototype07.jpg">
-<img src="img/prototype/prototype06.jpg">
-<img src="img/prototype/prototype02.jpg">
-
 ## The Process
 I started off with just wiring up some buttons I already had onto a breadboard and the GPIO pins on the RPi.
 And writing the first simple button_test.py script. just to turn on some LEDs.  
@@ -135,3 +122,34 @@ I'm sometimes presented with spiky readings in ThingSpeak.
 Writing the bot came with it's own struggles.  
 At first the code I still had lying around didn't work anymore. It was for a way older version of discord.py than
 the current one. So in I went to read the docs on discord.py to figure out what I had to change.  
+With that figured out I could start formatting the data so that it would display nicely in discord.  
+Using the embeds bots can send on discord, and through the relatively straightforward syntax discord.py has for these embeds,
+this was a quick process.  
+<img src="img/embed.png">  
+  
+Now came the hardest and for now impossible problem to solve.  
+How can I make the bot check the data from ThingSpeak every x seconds, and act on it when a task is reported as completed.  
+the coroutine / async/await programming is still out of my league, and i'll have to do some learning and researching on
+that kind of programming/structure before I can solve this problem I'm afraid.  
+My first couple solutions weren't fruitious.
+
+## The (working) Prototype
+
+The prototype is nothing more than a bunch of wires, and 2 small cardboard boxes the components arrived in by mail.  
+Held together by (packing) tape, with some holes cut into the cardboard for ventilation/ wires.  
+And finally a hole on the top covered up with the same tape to create some sort of 'window' to peer into the innerwirings.  
+
+### pictures
+<img src="img/prototype/prototype04.jpg">
+<img src="img/prototype/prototype03.jpg"/>
+<small> there's a lot of wires coming from the buttons. the right most button is the on/off button.</small>
+<img src="img/prototype/prototype08.jpg">
+<img src="img/prototype/prototype05.jpg">
+<img src="img/prototype/prototype07.jpg">
+<img src="img/prototype/prototype06.jpg">
+<img src="img/prototype/prototype02.jpg">
+
+
+## Future Plans
+
+
