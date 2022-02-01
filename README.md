@@ -159,5 +159,5 @@ So what would I like to add?
 - Discord-bot messages upon task completion
 - Discord-bot graph functionality (temp and humidity)
 - Discord-bot graph/ stats functionality (task/day, task completion stats on different temp/humidity)
-- Visualisation of effect humidity/temp has on my productivity, if any.
+- Visualisation of the effect humidity/temp has on my productivity, if any.
 - Average task duration stats
