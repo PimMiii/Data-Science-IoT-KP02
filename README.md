@@ -117,7 +117,7 @@ Now that I had a script posting data to ThingSpeak it was time to let the script
 It turned out the DHT11 sends some spiky reading from time to time, which i still cant figure out. At first I figured
 I must be sending reading errors to ThingSpeak, so I made sure there is no data transfer on DHT 11 reading errors. But still
 I'm sometimes presented with spiky readings in ThingSpeak.
-<img src="img/thingspeakspikes.png">
+<img src="img/thingspeakspikes.png"/>
 
 Writing the bot came with it's own struggles.  
 At first the code I still had lying around didn't work anymore. It was for a way older version of discord.py than
@@ -125,7 +125,7 @@ the current one. So in I went to read the docs on discord.py to figure out what 
 With that figured out I could start formatting the data so that it would display nicely in discord.  
 Using the embeds bots can send on discord, and through the relatively straightforward syntax discord.py has for these embeds,
 this was a quick process.  
-<img src="img/embed.png">  
+<img src="img/embed.png"/>  
   
 Now came the hardest and for now impossible problem to solve.  
 How can I make the bot check the data from ThingSpeak every x seconds, and act on it when a task is reported as completed.  
